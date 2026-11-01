@@ -1,0 +1,33 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --primary-colour: rgb(47, 27, 121);
+  --secondary-colour: rgb(112, 76, 159);
+  background: #f8f6f1;
+
+  color: var(--primary-colour);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+::selection {
+  color: #fffefa;
+  background: #b05c3b;
+}

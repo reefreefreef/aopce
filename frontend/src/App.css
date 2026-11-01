@@ -1,0 +1,326 @@
+#root {
+  min-height: 100vh;
+}
+
+html, body {
+  height: 100%;
+}
+
+.gallery-page {
+  width: min(1300px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 76px 0 96px;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.gallery-header {
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: #b05c3b;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.gallery-header h1 {
+  margin: 0;
+  color: #26241f;
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+
+.intro {
+  margin: 16px 0 30px;
+  color: #77736b;
+  font-size: 1rem;
+}
+
+
+
+.search-field:focus-within {
+  border-color: #b05c3b;
+  box-shadow: 0 0 0 3px rgb(176 92 59 / 12%);
+}
+
+.search-icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  stroke: #89847a;
+  stroke-linecap: round;
+  stroke-width: 1.7;
+}
+
+.search-field input {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #26241f;
+  font: inherit;
+  font-size: 0.88rem;
+}
+
+.search-field input::placeholder {
+  color: #98938a;
+}
+
+.image-count {
+  margin: 0;
+  color: #77736b;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+}
+
+.image-card {
+
+  height: 300px;
+  flex: 1 1 auto;
+
+  position: relative;
+  display: block;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #fffefa;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+
+  border: 0;
+}
+
+.image-card:hover,
+.image-card:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgb(49 40 29 / 10%);
+}
+
+.image-card:focus-visible {
+  outline: 3px solid #b05c3b;
+  outline-offset: 3px;
+}
+
+.image-card img {
+  background: #eeeae2;
+  transition: filter 180ms ease;
+
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.image-card__caption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 32px 15px 15px;
+  background: linear-gradient(transparent, rgb(0 0 0 / 75%));
+  color: #fff;
+  font-size: 0.9rem;
+  opacity: 0;
+  overflow-wrap: anywhere;
+  transition: opacity 180ms ease;
+}
+
+.image-card:hover img,
+.image-card:focus-visible img {
+  filter: brightness(0.55);
+}
+
+.image-card:hover .image-card__caption,
+.image-card:focus-visible .image-card__caption {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .image-card img {
+    filter: brightness(0.7);
+  }
+
+  .image-card__caption {
+    opacity: 1;
+  }
+}
+
+.empty-state {
+  padding: 48px 16px;
+  color: #77736b;
+  text-align: center;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+@media (max-width: 600px) {
+  .gallery-page {
+    width: min(100% - 32px, 1200px);
+    padding: 48px 0 64px;
+  }
+
+  .gallery-header {
+    margin-bottom: 26px;
+  }
+
+  .image-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 160px), 1fr));
+    gap: 12px;
+  }
+
+  .image-card__caption {
+    padding: 10px 11px;
+    font-size: 0.76rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.bg-image {
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('/images/Region - Beta SI.jpg');
+
+  filter: blur(16px);
+  -webkit-filter: blur(16px);
+
+  height: 100vh;
+  width: 100vw;
+  top: 0%;
+  left: 0%;
+
+  z-index: -2;
+
+  position: fixed;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+}
+
+.gallery-select {
+  display: flex;
+
+  max-width: 600px;
+  justify-content: center;
+}
+
+.gallery-select-option {
+  flex: 1;
+  
+  padding: 30px;
+  text-align: center;
+
+  cursor: pointer;
+
+  
+}
+.un {
+  display: inline-block;
+}
+
+.un::after {
+  content: '';
+  width: 0px;
+  height: 1px;
+  display: block;
+  background: black;
+  transition: width 180ms;
+}
+
+.un:hover::after {
+  width: 100%;
+}
+
+.gallery-header > h1 > a > img {
+  width:500px;
+}
+
+.theme-card {
+  width:300px;
+  height:200px;
+  border: dashed var(--secondary-colour) 4px;
+  display: flexbox;
+}
+.theme-text {
+  position: absolute;
+  right:20px;
+  bottom:20px;
+
+  text-decoration: underline;
+
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+hr.fade-edge {
+  border: none;
+  height: 3px; /* thickness of the line */
+  background: linear-gradient(to right, transparent, var(--secondary-colour), transparent);
+  /* Adjust #333333 to your desired line color */
+}
+
+.gallery-subtitle {
+  width: 100%;
+  text-align: center;
+  text-decoration: underline;
+  margin-bottom: 50px;
+
+  font-size: 50px;
+  font-weight: bold;
+}
+
+footer {
+  width: 100%;
+  bottom: 0%;
+  text-align: center;
+  margin: 100px;
+}
+
+.back-button {
+  float: left;
+  left:0%;
+  text-align: left;
+  bottom: -80px;
+  position: relative;
+  height: 0%;
+  font-size: large;
+
+  cursor: pointer;
+
+}
